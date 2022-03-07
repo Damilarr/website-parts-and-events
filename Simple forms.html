@@ -1,0 +1,145 @@
+<!doctype html>
+<html> 
+ <head> 
+  <title>More complex forms</title> 
+ <style type="text/css" id="dcoder_stylesheet">body{
+  background-color:#EEE;
+  color:#000;
+  font-family:"Times New Roman",Times,serif;
+  font-size:large;
+  background-image:url("https://www.tinyurl.com/yckdp255");
+}
+table{
+  width:500px;
+  border-collapse:collapse;
+  table-layout:fixed;
+}
+td{
+  vertical-align:top;
+  padding:5px;
+  word-wrap:break word;
+}
+#fullpage{
+  margin:100px;
+}
+.label_col{
+  text-align:right;
+}
+.input_col{
+  text-align:left;
+}
+.feedback_col{
+  text-align:center;
+  vertical-align:middle;
+  color:LightGray;
+  font-size:small;
+}
+.button{
+  margin:auto;
+  text-align:center;
+  width:50px;
+  color:Black;
+  
+  
+}
+.buttonBG{
+  padding:50px;
+  border-radius:30px;
+  color:black;
+  background-color:Grey;
+ 
+}</style></head> 
+ <body> 
+  <form action="#"> 
+   <div id="fullpage"> 
+    <h1>Make an Order:</h1> 
+    <table border="0"> 
+     <tbody> 
+      <tr> 
+       <td class="label_col">First name:</td> 
+       <td class="input_col"><input name="First name" id="firstname" type="text" onblur="validateFirstName();"></td> 
+       <td class="feedback_col"><span id="Firstnameprompt">&nbsp;</span></td> 
+      </tr> 
+      <tr> 
+       <td class="label_col">Last name:</td> 
+       <td class="input_col"><input name="Last name" id="last_name" type="text" onblur="validateLastName();"></td> 
+       <td class="feedback_col"><span id="lastnameprompt">&nbsp;</span></td> 
+      </tr> 
+      <tr> 
+       <td class="label_col">Phone number:</td> 
+       <td class="input_col"><input id="phoneNo" name="phone number" placeholder="xxx-xxx-xxxx" onblur="validatePhoneNumber();"></td> 
+       <td class="feedback_col"><span id="phonenumberprompt">&nbsp;</span></td> 
+      </tr> 
+      <tr> 
+       <td class="label_col">Order Quantity:</td> 
+       <td class="input_col"><input type="number" name="quantity" id="quantity" placeholder="1-55" min="1" step="1" max="55"></td> 
+       <td class="feedback_col"><span id="quantityprompt">&nbsp;</span></td> 
+      </tr> 
+      <tr> 
+       <td class="label_col">Item Price:</td> 
+       <td class="input_col"><input id="price" name="price" type="text" value="$10.00" readonly></td> 
+       <td class="feedback_col">USD</td> 
+      </tr> 
+      <tr> 
+       <td class="button" id="button" colspan="3"><span id="buttonBG" onclick="calcOrder();">Order Now</span></td> 
+      </tr> 
+     </tbody> 
+    </table> <span id="orderConfirm">&nbsp;</span> 
+   </div> 
+  </form> 
+ 
+<script type="text/javascript" id="dcoder_script">function validateFirstName(){
+    var fname=document.getElementById("firstname").value;
+    var re1 =/^(?=.*[A-Za-z])(?=.{2,25}$)[\w ]+$/
+    if(re1.test(fname)){
+       document.getElementById("Firstnameprompt").style.color="green";
+       document.getElementById("Firstnameprompt").innerHTML="<strong>Valid</strong>";
+       return true;
+    }
+    else {
+          document.getElementById("Firstnameprompt").style.color="red";
+          document.getElementById("Firstnameprompt").innerHTML="Enter a name between 2 to 15 charactlers!";
+          return false;
+    }
+
+}
+      
+function validateLastName(){
+    var lname=document.getElementById("firstname").value;
+    var re2 =/^(?=.*[A-Za-z])(?=.{2,25}$)[\w ]+$/
+    if(re2.test(lname)){
+       document.getElementById("lastnameprompt").style.color="green";
+       document.getElementById("lastnameprompt").innerHTML="<strong>Valid</strong>";
+       return true;
+    }
+    else {
+           document.getElementById("lastnameprompt").style.color="red";
+           document.getElementById("lastnameprompt").innerHTML="Enter a name between 2 to 25 characters!";
+           return false;
+    }
+}
+function validatePhoneNumber(){
+    var phoneNumber=document.getElementById("phoneNo").value;
+    var re3 =/^\d{3}-\d{3}-\d{4}$/;
+    if(re3.test(phoneNumber)) {
+       document.getElementById("phonenumberprompt").style.color="green";
+       document.getElementById("phonenumberprompt").innerHTML="<strong>Valid</strong>";
+       return true;
+     }
+     else{
+          document.getElementById("phonenumberprompt").style.color="red";
+          document.getElementById("phonenumberprompt").innerHTML="Use the format xxx-xxx-xxxx";
+          return false;
+     }
+}
+function calcOrder(){
+    var firstname=document.getElementById("firstname").value;
+    var lastname=document.getElementById("last_name").value;
+    var username = firstname+" "+lastname;
+    var phone=document.getElementById("phoneNo").value;
+    var quantity = document.getElementById("quantity").value;
+    var price = document.getElementById("price").value;
+    document.getElementById("orderConfirm"). innerHTML="<h2>Order Summary:<h2>";
+    document.getElementById("orderConfirm"). innerHTML+="<p>"+ username.toUpperCase()+ "<br>"+phone+"<p>";
+    document.getElementById("orderConfirm"). innerHTML+="<p>Total Order: $"+ price * quantity+"</p>";
+}</script></body></html>

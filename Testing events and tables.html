@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<title>Alerts and prompts</title>
+<head>
+<style>
+body{
+    background-color:#98eaf6;
+    text-align:left;
+}
+table{
+    border:1px solid red;
+    width:90%;
+}
+p{
+    font-size:105%;
+}
+td{
+    border:1px solid black;
+    text-align:left;
+    padding:8px;
+}
+tr:nth-child(even){
+    background-color:#99e942;
+}
+tr:nth-child(odd){
+    background-color:#98eaf6;
+}
+#mathInput{
+     color:1px solid black;
+}
+#mathd{
+    text-align: left;
+}
+#imgId{
+    height:55px;
+}
+
+     
+</style>
+<h2>Testing  Alltogether</h2>
+<img id="imgId" src="https://desertherald.com/wp-content/uploads/2022/01/google2.0.0-768x512.jpg"/>
+<p>Welcome to<strong> Gboard clipboard</strong>, any text that you copy will be saved here.Touch and <em><strong>hold</strong></em> a clip to pin it. Unpinned clips will be deleted after 1 hour.</p>
+<a href="https://support.google.com/gboard/answer/10742542?hl=en">For more information about Gboard clipboard</a>
+<br></br>
+<p id="mathd">You can also use our multiplication tool to multiply any number by 5👇👇</p>
+
+<script >
+function math(){
+    var userinput = document.getElementById("mathInput").value;
+    alert("Your number multiplied by 5 is:"+ userinput * 5 );
+}
+</script>
+</head>
+<body>
+<input id="mathInput" type="number"/><button onclick="math()"> multiply by 5</button>
+<br></br>
+
+<table>
+<tr>
+<td>Day 1<td>Sleeping<td>30 minutes
+<tr>
+<td>Day 2<td>Cleaning<td>60 minutes
+</tr>
+<tr>
+<td>Day 3<td>Washing<td>50 minutes
+</tr>
+<tr>
+<td>Day 4<td>Eating<td>25 minutes
+</tr>
+<tr>
+<td>Day 5<td>Running<td>75 minutes
+</tr>
+<tr>
+<td>Day 6<td>Visitation<td>120 minutes
+</tr>
+</table>
+
+</body>
+</html>
+
+
